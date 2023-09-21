@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="utf-8">
+    <title>新闻创作平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../../static/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/css/fontastic.css">
+    <link rel="stylesheet" href="../../static/css/style.default.css" id="theme-stylesheet">
+    <script src="../../static/script/message_sender.js"></script>
+    <script src="../../static/script/tinymce/tinymce.min.js"></script>
+    {% block style-area %}{% endblock %}
+</head>
+<body>
+<div class="page">
+    <header class="header">
+
+        <div id="navbar" class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #fff; color: #000;border-bottom: 1px solid #3333;">
+            <div class="container-fluid">
+                <p class="navbar-brand" style="font-size: 1.3em;margin: 0 1em 0 0;">我的科大新闻</p>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">首页</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/addNews">发稿</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/changePassages">编辑</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">管理</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center" style="margin: 0;align-self: center; justify-self: center;">
+                    <li class="nav-item"><a href="/logout" class="nav-link logout"> <span
+                            class="d-none d-sm-inline">Logout<i style="width: 1.3em;height: auto;"><svg t="1684404806300" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4753"><path d="M0 192v640c0 70.7 57.3 128 128 128h352c17.7 0 32-14.3 32-32s-14.3-32-32-32H128c-35.3 0-64-28.7-64-64V192c0-35.3 28.7-64 64-64h352c17.7 0 32-14.3 32-32s-14.3-32-32-32H128C57.3 64 0 121.3 0 192z" p-id="4754" fill="#e6e6e6"></path><path d="M1013.3 535.7L650.9 863.3c-41.1 37.2-106.9 8-106.9-47.5V685c0-4.4-3.6-8-8-8H224c-17.7 0-32-14.3-32-32V379c0-17.7 14.3-32 32-32h312c4.4 0 8-3.6 8-8V208.1c0-55.5 65.8-84.7 106.9-47.5l362.4 327.6c14.1 12.8 14.1 34.8 0 47.5z" p-id="4755" fill="#e6e6e6"></path></svg></i></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+        <nav class="side-navbar">
+            <div class="sidebar-header d-flex align-items-center">
+                <div class="title">
+                    <h1 class="h4" id="user-name">{{ login_author }}</h1>
+                    <p>新闻作者</p>
+                </div>
+            </div>
+            <span class="heading">菜单</span>
+            <ul class="list-unstyled">
+                <li style=""><a href="/addNews"> <i style="width: 1em; height: auto;"><svg t="1684404739187" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2883"><path d="M930.6672 228.010394L796.091945 93.3328c-16.271837-16.271837-37.865281-25.175295-60.789127-25.175295-23.026184 0-44.619628 8.903458-60.789126 25.175295L110.8327 656.911453c-5.321607 5.321607-8.801119 12.280632-9.824505 19.751349L68.464521 916.646812c-1.43274 10.745553 2.149111 21.491105 9.824506 29.064161 6.54967 6.54967 15.35079 10.131521 24.458924 10.131522 1.535079 0 3.070158-0.102339 4.605237-0.307016l239.98401-32.543674c7.470718-1.023386 14.429742-4.502898 19.751349-9.824505l563.476314-563.476315c16.271837-16.271837 25.175295-37.865281 25.175295-60.789126 0.102339-23.026184-8.801119-44.619628-25.072956-60.891465zM326.460124 855.960024l-183.390766 24.868279 24.868279-183.390766 399.325205-399.325204 158.522487 158.522486L326.460124 855.960024z m555.289226-555.186888L774.703178 407.819308 616.28303 249.296822 723.226864 142.25065c4.298221-4.298221 9.312812-4.912253 11.973616-4.912253s7.675395 0.614032 11.973616 4.912253l134.575254 134.575254c4.298221 4.298221 4.912253 9.312812 4.912253 11.973616 0 2.660804-0.614032 7.675395-4.912253 11.973616z" fill="" p-id="2884"></path></svg></i>开始写作</a></li>
+                <li><a href="/changePassages"> <i style="width: 1em; height: auto;"><svg t="1684404551203" class="icon" viewBox="0 0 1069 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2402"><path d="M746.027944 190.083832q-11.241517 0-18.906188-7.664671t-12.774451-17.884232-7.664671-20.9501-2.55489-17.884232l0-125.700599 2.043912 0q9.197605 0 17.373253 2.043912t19.928144 9.708583 28.61477 21.461078 42.411178 36.279441q27.592814 24.526946 43.944112 41.389222t25.037924 28.61477 10.730539 19.928144 2.043912 14.307385l0 16.351297-150.227545 0zM1063.856287 671.42515q3.065868 8.175649 4.087824 20.439122t-10.219561 23.50499q-5.10978 5.10978-9.197605 9.708583t-7.153693 7.664671q-4.087824 4.087824-7.153693 6.131737l-86.866267-85.844311q6.131737-5.10978 13.796407-12.263473t12.774451-11.241517q12.263473-11.241517 26.570858-9.708583t23.50499 6.642715q10.219561 5.10978 21.972056 17.884232t17.884232 27.081836zM703.105788 766.467066q22.483034 0 37.812375-12.263473l-198.259481 206.43513-282.05988 0q-19.417166 0-42.411178-11.241517t-42.922156-29.636727-33.213573-42.411178-13.285429-49.56487l0-695.952096q0-21.461078 9.708583-44.966068t26.570858-42.411178 38.323353-31.680639 44.966068-12.774451l391.409182 0 0 127.744511q0 19.417166 6.131737 41.9002t18.906188 41.389222 33.213573 31.680639 49.053892 12.774451l149.205589 0 0 338.267465-140.007984 145.117764q11.241517-16.351297 11.241517-35.768463 0-26.570858-18.906188-45.477046t-45.477046-18.906188l-383.233533 0q-26.570858 0-44.966068 18.906188t-18.39521 45.477046 18.39521 44.966068 44.966068 18.39521l383.233533 0zM319.872255 383.233533q-26.570858 0-44.966068 18.906188t-18.39521 45.477046 18.39521 44.966068 44.966068 18.39521l383.233533 0q26.570858 0 45.477046-18.39521t18.906188-44.966068-18.906188-45.477046-45.477046-18.906188l-383.233533 0zM705.149701 895.233533l13.285429-13.285429 25.548902-25.548902q15.329341-15.329341 33.724551-34.235529t36.790419-37.301397q43.944112-43.944112 99.129741-98.107784l85.844311 85.844311-99.129741 99.129741-36.790419 36.790419-33.724551 33.724551q-14.307385 14.307385-24.015968 24.526946t-10.730539 11.241517q-5.10978 4.087824-11.241517 8.686627t-12.263473 7.664671-18.906188 7.664671-26.05988 8.686627-25.548902 7.153693-18.39521 4.087824q-12.263473 2.043912-16.351297-3.065868t-2.043912-17.373253q1.021956-6.131737 4.087824-18.39521t7.153693-25.037924 7.664671-24.015968 5.620758-15.329341q6.131737-13.285429 16.351297-23.50499z" p-id="2403"></path></svg></i>文章修改</a></li>
+            </ul>
+
+
+        </nav>
+        <div class="content-inner">
+            <header class="page-header">
+                <div class="container-fluid">
+                    <h2 class="no-margin-bottom">
+                        {% block action-reminder %}{% endblock %}
+                    </h2>
+                </div>
+            </header>
+            <section class="dashboard-counts no-padding-bottom" style="height: 90%; padding-top: 1em;">
+                <div class="container-fluid" style="height: 100%;">
+                    {% block content-area %}{% endblock %}
+                </div>
+            </section>
+            <footer class="main-footer" style="background-color: #fff !important; color: #000;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>我的科大新闻 -- 作者创作、管理站点</p>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <p>我的学号</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+</div>
+{% block script-area %}{% endblock %}
+</body>
+</html>

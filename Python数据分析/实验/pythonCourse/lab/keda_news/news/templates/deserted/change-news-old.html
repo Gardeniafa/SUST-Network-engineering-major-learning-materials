@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="utf-8">
+    <title>新闻创作平台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="../../static/css/bootstrap/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="../../static/css/font-awesome/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="../../static/css/fontastic.css">
+    <link rel="stylesheet" href="../../static/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <script src="../../static/script/message_sender.js"></script>
+    <script src="../../static/script/tinymce/tinymce.min.js"></script>
+    <style>
+        #editor-filed {
+            display: none;
+        }
+
+        #list-filed {
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- Main Navbar-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-holder d-flex align-items-center justify-content-between">
+                    <!-- Navbar Header-->
+                    <div class="navbar-header">
+                        <!-- Navbar Brand --><span href="#" class="navbar-brand d-none d-sm-inline-block">
+<span class="brand-text d-none d-lg-inline-block">
+<span>新闻</span><strong>创作面板</strong></span>
+</span>
+                    </div>
+                    <!-- Navbar Menu -->
+                    <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                        <!-- Search-->
+                        <!-- Logout    -->
+                        <li class="nav-item"><a href="logout" class="nav-link logout"> <span
+                                class="d-none d-sm-inline">Logout<i style="width: 1.3em;height: auto;"><svg
+                                t="1684404806300" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="4753"><path
+                                d="M0 192v640c0 70.7 57.3 128 128 128h352c17.7 0 32-14.3 32-32s-14.3-32-32-32H128c-35.3 0-64-28.7-64-64V192c0-35.3 28.7-64 64-64h352c17.7 0 32-14.3 32-32s-14.3-32-32-32H128C57.3 64 0 121.3 0 192z"
+                                p-id="4754" fill="#e6e6e6"></path><path
+                                d="M1013.3 535.7L650.9 863.3c-41.1 37.2-106.9 8-106.9-47.5V685c0-4.4-3.6-8-8-8H224c-17.7 0-32-14.3-32-32V379c0-17.7 14.3-32 32-32h312c4.4 0 8-3.6 8-8V208.1c0-55.5 65.8-84.7 106.9-47.5l362.4 327.6c14.1 12.8 14.1 34.8 0 47.5z"
+                                p-id="4755" fill="#e6e6e6"></path></svg></i></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
+
+                <div class="title">
+                    <h1 class="h4" id="user-name">{{ login_author }}</h1>
+                    <p>新闻作者</p>
+                </div>
+            </div>
+            <!-- Sidebar Navidation Menus--><span class="heading">菜单</span>
+            <ul class="list-unstyled">
+                <li><a href="/addNews"> <i style="width: 1em; height: auto;">
+                    <svg t="1684404739187" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" p-id="2883">
+                        <path d="M930.6672 228.010394L796.091945 93.3328c-16.271837-16.271837-37.865281-25.175295-60.789127-25.175295-23.026184 0-44.619628 8.903458-60.789126 25.175295L110.8327 656.911453c-5.321607 5.321607-8.801119 12.280632-9.824505 19.751349L68.464521 916.646812c-1.43274 10.745553 2.149111 21.491105 9.824506 29.064161 6.54967 6.54967 15.35079 10.131521 24.458924 10.131522 1.535079 0 3.070158-0.102339 4.605237-0.307016l239.98401-32.543674c7.470718-1.023386 14.429742-4.502898 19.751349-9.824505l563.476314-563.476315c16.271837-16.271837 25.175295-37.865281 25.175295-60.789126 0.102339-23.026184-8.801119-44.619628-25.072956-60.891465zM326.460124 855.960024l-183.390766 24.868279 24.868279-183.390766 399.325205-399.325204 158.522487 158.522486L326.460124 855.960024z m555.289226-555.186888L774.703178 407.819308 616.28303 249.296822 723.226864 142.25065c4.298221-4.298221 9.312812-4.912253 11.973616-4.912253s7.675395 0.614032 11.973616 4.912253l134.575254 134.575254c4.298221 4.298221 4.912253 9.312812 4.912253 11.973616 0 2.660804-0.614032 7.675395-4.912253 11.973616z"
+                              fill="" p-id="2884"></path>
+                    </svg>
+                </i>开始写作</a></li>
+                <li style="background-color: #6663;"><a href="/changePassages"> <i style="width: 1em; height: auto;">
+                    <svg t="1684404551203" class="icon" viewBox="0 0 1069 1024" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" p-id="2402">
+                        <path d="M746.027944 190.083832q-11.241517 0-18.906188-7.664671t-12.774451-17.884232-7.664671-20.9501-2.55489-17.884232l0-125.700599 2.043912 0q9.197605 0 17.373253 2.043912t19.928144 9.708583 28.61477 21.461078 42.411178 36.279441q27.592814 24.526946 43.944112 41.389222t25.037924 28.61477 10.730539 19.928144 2.043912 14.307385l0 16.351297-150.227545 0zM1063.856287 671.42515q3.065868 8.175649 4.087824 20.439122t-10.219561 23.50499q-5.10978 5.10978-9.197605 9.708583t-7.153693 7.664671q-4.087824 4.087824-7.153693 6.131737l-86.866267-85.844311q6.131737-5.10978 13.796407-12.263473t12.774451-11.241517q12.263473-11.241517 26.570858-9.708583t23.50499 6.642715q10.219561 5.10978 21.972056 17.884232t17.884232 27.081836zM703.105788 766.467066q22.483034 0 37.812375-12.263473l-198.259481 206.43513-282.05988 0q-19.417166 0-42.411178-11.241517t-42.922156-29.636727-33.213573-42.411178-13.285429-49.56487l0-695.952096q0-21.461078 9.708583-44.966068t26.570858-42.411178 38.323353-31.680639 44.966068-12.774451l391.409182 0 0 127.744511q0 19.417166 6.131737 41.9002t18.906188 41.389222 33.213573 31.680639 49.053892 12.774451l149.205589 0 0 338.267465-140.007984 145.117764q11.241517-16.351297 11.241517-35.768463 0-26.570858-18.906188-45.477046t-45.477046-18.906188l-383.233533 0q-26.570858 0-44.966068 18.906188t-18.39521 45.477046 18.39521 44.966068 44.966068 18.39521l383.233533 0zM319.872255 383.233533q-26.570858 0-44.966068 18.906188t-18.39521 45.477046 18.39521 44.966068 44.966068 18.39521l383.233533 0q26.570858 0 45.477046-18.39521t18.906188-44.966068-18.906188-45.477046-45.477046-18.906188l-383.233533 0zM705.149701 895.233533l13.285429-13.285429 25.548902-25.548902q15.329341-15.329341 33.724551-34.235529t36.790419-37.301397q43.944112-43.944112 99.129741-98.107784l85.844311 85.844311-99.129741 99.129741-36.790419 36.790419-33.724551 33.724551q-14.307385 14.307385-24.015968 24.526946t-10.730539 11.241517q-5.10978 4.087824-11.241517 8.686627t-12.263473 7.664671-18.906188 7.664671-26.05988 8.686627-25.548902 7.153693-18.39521 4.087824q-12.263473 2.043912-16.351297-3.065868t-2.043912-17.373253q1.021956-6.131737 4.087824-18.39521t7.153693-25.037924 7.664671-24.015968 5.620758-15.329341q6.131737-13.285429 16.351297-23.50499z"
+                              p-id="2403"></path>
+                    </svg>
+                </i>文章修改</a></li>
+            </ul>
+
+
+        </nav>
+        <div class="content-inner">
+            <!-- Page Header-->
+            <header class="page-header">
+                <div class="container-fluid">
+                    <h2 class="no-margin-bottom">选择需要修改的新闻内容</h2>
+                </div>
+            </header>
+            <section class="dashboard-counts no-padding-bottom" style="height: 90%; padding-top: 1em;">
+
+                <div class="container-fluid" style="height: 100%;">
+                    <div id="editor-filed">
+                        <div class="row bg-white has-shadow"
+                             style="border-radius: 10px; border: none;margin: 2px; box-shadow: 1px 30px 30px #9993; padding: 0.6em; align-content: center; justify-content: space-around">
+                            <p style="margin: auto 0;height: 100%;font-size: 1.3em;"><strong>标题</strong></p>
+                            <label for="news-title"></label><input type="text" placeholder="输入标题" id="news-title"
+                                                                   class="input-material"
+                                                                   style="display: inline-block; width: calc(100% - 5em); !important;font-size: 1.3em;">
+                        </div>
+                        <div id="editor">
+
+                        </div>
+                    </div>
+                    <div id="list-filed" style="width: 100%; height: 90%;">
+                        <div class="table-responsive table-hover row bg-white has-shadow">
+                            <table id="dtable" class="table table-striped  table-bordered  table-hover text-center" style="position: relative; width: 96%; margin: 3px auto;">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">序号</th>
+                                    <th class="text-center">标题</th>
+                                    <th class="text-center">创建时间</th>
+                                    <th class="text-center" style="border-right: none; width: 6em; padding-left: 5em;">操</th>
+                                    <th class="text-center" style="border-left: none; width: 6em; padding-right: 5em;">作</th>
+                                </tr>
+                                </thead>
+                                <tbody id="passages-tbody">
+
+                                </tbody>
+
+                            </table>
+                            <div class="row" style="">
+                                <div class="" style="justify-content: space-around; display: flex;align-content: center;min-width:20em; max-width: 33%;">
+                                        <button type="button" disabled="disabled" class="btn btn-primary" id="previous-passage">上一页</button>
+                                        <p class="text-center no-margin" style="display: inline-block;align-self: center;">第<span id="page-number">1</span>页 / 共<span id="total-pages">1</span>页</p>
+                                        <button type="button" class="btn btn-primary" id="next-passage">下一页</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <footer class="main-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>我的科大新闻 -- 作者创作、管理站点</p>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <p>202007020222</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+<script>
+    const image_add_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+        xhr.open('POST', '/addImage');
+
+        xhr.upload.onprogress = (e) => {
+            progress(e.loaded / e.total * 100);
+        };
+        xhr.onload = () => {
+            if (xhr.status === 403) {
+                reject({message: 'HTTP Error: ' + xhr.status, remove: true});
+                return;
+            }
+            if (xhr.status < 200 || xhr.status >= 300) {
+                reject('HTTP Error: ' + xhr.status);
+                return;
+            }
+            const json = JSON.parse(xhr.responseText);
+
+            if (!json || typeof json.source != 'string') {
+                reject('Invalid JSON: ' + xhr.responseText);
+                return;
+            }
+            resolve(json.source);
+        };
+        xhr.onerror = () => {
+            reject('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
+        };
+        const formData = new FormData();
+        formData.append('img', blobInfo.blob(), blobInfo.filename());
+        formData.append('api', 'true');
+        formData.append('type', 'easy')
+        xhr.send(formData);
+    });
+    function initTinyMCE(){
+        tinymce.init({
+            selector: '#editor',
+            language: 'zh-Hans',
+            branding: false,
+            menubar: false,
+            plugins: 'emoticons image codesample table image link save',
+            font_family_formats: "微软雅黑='微软雅黑'; 宋体='宋体'; 黑体='黑体'; 仿宋='仿宋'; 楷体='楷体'; 隶书='隶书'; 幼圆='幼圆'; 方正舒体='方正舒体'; 方正姚体='方正姚体'; 等线='等线'; 华文彩云='华文彩云'; 华文仿宋='华文仿宋'; 华文行楷='华文行楷'; 华文楷体='华文楷体'; 华文隶书='华文隶书'; Andale Mono=andale mono,times; Arial=arial; Arial Black=arial black;avant garde; Book Antiqua=book antiqua;palatino; Comic Sans MS=comic sans ms; Courier New=courier new;courier; Georgia=georgia; Helvetica=helvetica; Impact=impact;chicago; Symbol=symbol; Tahoma=tahoma;arial; sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Trebuchet MS=trebuchet ms; Verdana=verdana;geneva; Webdings=webdings; Wingdings=wingdings",
+            statusbar: false,
+            toolbar: [
+                'bold italic underline strikethrough indent outdent | subscript superscript | alignleft aligncenter alignright alignjustify | lineheight emoticons | image blockquote hr codesample table link unlink',
+                'save | undo redo | cut paste pastetext | forecolor backcolor | fontfamily fontsize fontsizeinput blocks |'
+            ],
+            images_upload_handler: image_add_handler,
+            width: '100%',
+            height: '90%',
+            margin: 0,
+            save_onsavecallback: save_passage,
+            save_enablewhendirty: false,
+            placeholder: '在这里输入正文， 点击左上角按钮保存',
+            content_style: `
+                img{
+                max-width:90%;
+                min-width: 10%;
+                height: auto;
+                }
+                .mce-content-body[data-mce-placeholder]:not(.mce-visualblocks)::before {
+                color: #3336;
+                opacity: 1;
+                }
+                `
+        });
+    }
+
+    function submitData(url, data, success, failed) {
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", url);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.responseType = "json";
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                success(xhr.response);
+            } else {
+                failed(xhr.status, xhr.statusText);
+            }
+        };
+        xhr.onerror = function () {
+            failed(-1, xhr.error);
+        };
+        xhr.send(JSON.stringify(data));
+    }
+
+    let passage_id = undefined;
+
+    function save_passage() {
+        let contentHtml = tinymce.activeEditor.getContent();;
+        let title = document.querySelector('#news-title').value;
+        if (title.trim() === '') {
+            showMessage('请拟定标题后再提交', 'failed');
+            return false;
+        }
+        if (contentHtml.trim() === '') {
+            showMessage('请输入新闻内容后提交', 'failed');
+            return false;
+        }
+        let data = {
+            'title': title,
+            'content': contentHtml
+        };
+        if (passage_id) {
+            data['passage_id'] = passage_id;
+        }
+        submitData('addNews', data, function (response) {
+            let retData;
+            retData = response;
+            if (retData['status'] !== 'success') {
+                showMessage(retData['message'], 'failed');
+            }
+            passage_id = retData['passage_id'];
+            showMessage('保存成功', 'success');
+        }, function (status, message) {
+            showMessage('提交失败：' + message + '(' + status + ')', 'failed')
+        })
+    }
+
+    const pageTotalRecordMax = 3;
+
+    submitData('getAuthorAlbum', {
+    }, function (response){
+        if(response['status'] !== 'success'){
+            showMessage(response['message'], 'failed');
+            return;
+        }
+        tablePageResolveMethod(response);
+    }, function (status, response){
+        showMessage('获取信息出错：'+response+status, 'failed');
+    })
+    function tablePageResolveMethod(queryAuthorAlbumResponse){
+        let passagesDataList = queryAuthorAlbumResponse['passages'];
+        let totalPages = Math.ceil(passagesDataList.length / pageTotalRecordMax);
+        let totalPassagePageSpan = document.getElementById('total-pages');
+        let currentPassagePageSpan = document.getElementById('page-number');
+        let previousBtn = document.getElementById('previous-passage');
+        previousBtn.addEventListener('click', function (){
+            let page = parseInt(currentPassagePageSpan.innerHTML);
+            page += -1;
+            if(page < 1){
+                previousBtn.setAttribute('disabled', 'disabled');
+                return;
+            }
+            pageSlice(passagesDataList, page, pageTotalRecordMax);
+            currentPassagePageSpan.innerHTML = '' + page;
+            if(page === 1){
+                previousBtn.setAttribute('disabled', 'disabled');
+            }
+            if(page === totalPages){
+                nextBtn.setAttribute('disabled', 'disabled');
+            }
+            if(page < totalPages){
+                nextBtn.removeAttribute('disabled');
+            }
+        });
+        let nextBtn = document.getElementById('next-passage');
+        nextBtn.addEventListener('click', function (){
+            let page = parseInt(currentPassagePageSpan.innerHTML);
+            page += 1;
+            if(page > totalPages){
+                nextBtn.setAttribute('disabled', 'disabled');
+                return;
+            }
+            currentPassagePageSpan.innerHTML = '' + page;
+            pageSlice(passagesDataList, page, pageTotalRecordMax);
+            if(page === totalPages){
+                nextBtn.setAttribute('disabled', 'disabled');
+            }
+            if(page === 1){
+                previousBtn.setAttribute('disabled', 'disabled');
+            }
+            if(page > 1){
+                previousBtn.removeAttribute('disabled');
+            }
+        })
+        totalPassagePageSpan.innerHTML = totalPages.toString();
+        currentPassagePageSpan.innerHTML = '1';
+        pageSlice(passagesDataList, 1, pageTotalRecordMax);
+        if(totalPages === 1){
+            nextBtn.setAttribute('disabled', 'disabled');
+        }
+        function pageSlice(data, index, size){
+            let tableContent = document.querySelector('#passages-tbody');
+            let passage_data_list = data.slice((index-1)*size, index*size);
+            let tale_page_html = "";
+            for(let i = 0; i < passage_data_list.length; i += 1){
+                tale_page_html += '<tr><td>'+(i+1)+'</td><td>'+passage_data_list[i]['title']+'</td><td>'+passage_data_list[i]['time']+'</td>' +
+                    '<td>'+'<button class="btn-default edit-btn" value="'+passage_data_list[i]['passage_id']+'">' + '修改' +
+                    '</button>'+'</td><td>'+'<button class="btn-danger delete-btn" value="'+passage_data_list[i]['passage_id']+'">' + '删除' +
+                    '</button>'+'</td></tr>'
+            }
+            tableContent.innerHTML = '';
+            tableContent.innerHTML = tale_page_html;
+        }
+        function editPassage(passageId, ){
+            try{
+                document.querySelector('#list-filed').style.display = 'none';
+                let editorFiled = document.querySelector('#editor-filed');
+                editorFiled.style.display = 'block';
+                editorFiled.style.height = '100%';
+                initTinyMCE();
+                let passageData = undefined;
+                for(let i = 0; i < passagesDataList.length; i += 1){
+                    if(passagesDataList[i]['passage_id'] === passageId){
+                        passageData = passagesDataList[i];
+                    }
+                }
+                document.querySelector('#news-title').value = passageData['title'];
+                passage_id = passageData['passage_id'];
+                setTimeout(function (){
+                    tinymce.activeEditor.setContent(passageData['content']);
+                }, 333);
+                document.querySelector('.no-margin-bottom').innerHTML = '对新闻文章内容进行修改';
+                showMessage('载入文章成功，编辑后点击工具栏左下角进行保存', 'success');
+            }catch (e){
+                console.log(e);
+                showMessage('载入文章出错啦', 'failed');
+            }
+        }
+        function deletePassage(passageId){
+            submitData('deletePassage', {
+                'passage_id': passageId.trim(),
+            }, function (response){
+                if(response['status'] !== 'success'){
+                    showMessage(response['message'], 'failed');
+                }else {
+                    showMessage('删除所选新闻成功', 'success', 600, 800);
+                }
+                setTimeout(function (){
+                    let deleteIndex = 0;
+                    for(let i = 0; i < passagesDataList.length; i += 1){
+                        if(passagesDataList[i]['passage_id'] === passageId){
+                            deleteIndex = i;
+                            break;
+                        }
+                    }
+                    passagesDataList.splice(deleteIndex, 1);
+                    totalPages = Math.ceil(passagesDataList.length / pageTotalRecordMax);
+                    totalPassagePageSpan.innerHTML = totalPages.toString();
+                    let page = parseInt(currentPassagePageSpan.innerHTML);
+                    if(page > totalPages){
+                        page = 1;
+                    }
+                    pageSlice(passagesDataList, page, pageTotalRecordMax);
+                    currentPassagePageSpan.innerHTML = page.toString();
+                    totalPassagePageSpan.innerHTML = totalPages.toString();
+                    if(page <= 1){
+                        previousBtn.setAttribute('disabled', 'disabled');
+                    }else {
+                        previousBtn.removeAttribute('disabled');
+                    }
+                    if(page >= totalPages){
+                        nextBtn.setAttribute('disabled', 'disabled');
+                    }else {
+                        nextBtn.removeAttribute('disabled');
+                    }
+                }, 2000);
+            }, function (code, response){
+                showMessage('删除错误：'+response+code, 'failed')
+            })
+        }
+        // event delegate
+        function eventHandler(event) {
+            let target = event.target;
+            if (target.classList.contains("edit-btn")) {
+                let value = target.value;
+                editPassage(value);
+            }
+            if (target.classList.contains("delete-btn")) {
+                let value = target.value;
+                deletePassage(value);
+            }
+        }
+        document.querySelector('#passages-tbody').addEventListener('click', eventHandler);
+    }
+</script>
+</body>
+</html>

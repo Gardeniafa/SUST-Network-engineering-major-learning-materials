@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'font-1';
+    src: url("../../static/fonts/HeFengShuDaoZhaoHeFeiLongTi-Shan(GEETYPE-FeilongGBT-Flash)-2.ttf");
+}
+html,body{
+    background-color: #eee;
+    width: 100%;
+}
+html{
+    height: 100%;
+}
+body{
+    min-height: 100%;
+}
+
+.img-div-fix-1{
+    position: relative;
+    height: 100%;
+}
+.img-div-fix-1 img{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    filter: blur(3px);
+}
+#navbar{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background-image: linear-gradient(180deg, #3336 30%, #3335, #3333, #3332, #3330);
+    padding-left: 3em;
+}
+#navbar p, #navbar ul a{
+    color: #fff;
+    font-size: 1.1em;
+}
+#banner{
+    height: 360px;
+    overflow: hidden;
+    z-index: 0;
+}
+.img-div-fix-1 .banner-text{
+    font-family: 'font-1', 'serif';
+    font-size: 5em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    max-width: 66%;
+    width: max-content;
+}
+.img-div-fix-1 .banner-text p{
+    mix-blend-mode: difference;
+    text-shadow: 6px 6px 13px #3336;
+}
+.img-div-fix-1 p:nth-child(odd){
+    float: left;
+}
+.img-div-fix-1 p:nth-child(even){
+    float: right;
+}
+@keyframes jump {
+    0%{
+        align-self: center;
+    }
+    50%{
+        align-self: start;
+    }
+    100%{
+        align-self: center;
+    }
+}
+#navbar a:hover{
+    background-color: #fff3;
+    backdrop-filter: blur(30px);
+    font-weight: bold;
+}
+#passages-list{
+}
+#passages-list tr{
+
+}
+#dtable{
+    width: calc(100% - 6em);
+}
+#passages-list tr td:nth-child(1){
+    width: calc(1em + 10px);
+    padding-left: 1em;
+}
+.breath-light{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #e69f;
+    vertical-align: center;
+    display: inline-block;
+    margin: 0;
+}
+#passages-list tr td:nth-child(2){
+    width: auto;
+    text-align: left;
+    padding-left: 1em;
+}
+#passages-list tr td:nth-child(3){
+    width: 15em;
+    white-space: nowrap;
+}
+footer{
+    position: absolute;
+    margin-bottom: 0 !important;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 0 3em;
+}
+body{
+    position: relative;
+}

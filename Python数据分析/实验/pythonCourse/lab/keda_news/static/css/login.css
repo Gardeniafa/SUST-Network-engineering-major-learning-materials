@@ -1,0 +1,93 @@
+body {
+
+}
+
+form p {
+    display: inline-block;
+}
+
+#login {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: #eeeeee;
+    box-shadow: 6px 6px 36px #eee;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr 1.3fr 1fr;
+    text-align: center;
+}
+
+input[name=user], input[name=pwd] {
+    margin-top: 8%;
+    width: 100%;
+    border: none;
+    font-size: 1.06em;
+}
+
+input[name=user]:focus, input[name=pwd]:focus {
+    outline: none;
+    background-color: #fff3;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.button {
+    width: 60%;
+    background-color: lightblue;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    color: white;
+    align-self: end;
+    justify-self: center;
+    height: 60%;
+}
+
+.button:hover {
+    background-color: deepskyblue;
+    cursor: pointer;
+
+}
+
+.input-box {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    align-self: start;
+    text-align: left;
+}
+
+.input-box hr {
+    width: 100%;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid #999;
+}
+
+.u-i-v {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: #fff3;
+    border-radius: 0;
+}
+
+.row, .has-shadow, .justify-content-center {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+section{
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.card{
+    backdrop-filter: blur(0.1em);
+    background-color: #fff6;
+}
+footer{
+    background-color: #fff6;
+    backdrop-filter: blur(0.13em);
+    border: none;
+}

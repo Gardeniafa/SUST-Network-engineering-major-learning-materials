@@ -1,0 +1,16 @@
+{% extends 'author-dashboard-base.html' %}
+{% block action-reminder %}撰写新的新闻内容{% endblock %}
+{% block content-area %}
+    <div class="row bg-white has-shadow"
+         style="border-radius: 10px; border: none;margin: 2px; box-shadow: 1px 30px 30px #9993; padding: 0.6em; align-content: center; justify-content: space-around">
+        <p style="margin: auto 0;height: 100%;font-size: 1.3em;"><strong>标题</strong></p>
+        <label for="news-title"></label><input type="text" placeholder="输入标题" id="news-title" class="input-material"
+                                               style="display: inline-block; width: calc(100% - 5em); !important;font-size: 1.3em;">
+    </div>
+    <div id="editor">
+
+    </div>
+{% endblock %}
+{% block script-area %}
+    <script src="../../static/script/addNews.js"></script>
+{% endblock %}

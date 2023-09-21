@@ -1,0 +1,180 @@
+{% extends 'home-base.html' %}
+{% block banner %}{% endblock %}
+{% block head-content %}
+    <style>
+        body {
+
+        }
+        form p {
+            display: inline-block;
+        }
+        #login {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 10px;
+            border: #eeeeee;
+            box-shadow: 6px 6px 36px #eee;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr 1fr 1.3fr 1fr;
+            text-align: center;
+        }
+        input[name=user], input[name=pwd] {
+            margin-top: 8%;
+            width: 100%;
+            border: none;
+            font-size: 1.06em;
+        }
+        input[name=user]:focus, input[name=pwd]:focus {
+            outline: none;
+        }
+        .button {
+            width: 60%;
+            background-color: lightblue;
+            border-radius: 10px;
+            border: none;
+            font-size: 20px;
+            color: white;
+            align-self: end;
+            justify-self: center;
+            height: 60%;
+        }
+
+        .button:hover {
+            background-color: deepskyblue;
+            cursor: pointer;
+        }
+        .input-box{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            align-self: start;
+            text-align: left;
+        }
+        .input-box hr{
+            width: 100%;
+            margin: 0;
+            border: none;
+            border-bottom: 1px solid #999;
+        }
+
+    </style>
+
+    <script>
+        function clearInputBox() {
+            document.querySelector('input[name=user]').value = '';
+            document.querySelector('input[name=pwd]').value = '';
+        }
+    </script>
+{% endblock %}
+{% block content %}
+<!--<div id="login1">-->
+<!--    <form action="/login" method="post" id="login">-->
+<!--        <p style="grid-column: 1;grid-column-end: 2;grid-row: 1;grid-row-end: 2">用户名</p>-->
+<!--        <div class="input-box" style="grid-column: 2;grid-column-end: 5;grid-row: 1;grid-row-end: 2">-->
+<!--            <input class="u-i-v" type="text" name="user" placeholder="" autocomplete="off">-->
+<!--            <hr>-->
+<!--        </div>-->
+<!--        <p style="grid-column: 1;grid-column-end: 2;grid-row: 2;grid-row-end: 3">密码</p>-->
+<!--        <div class="input-box" style="grid-column: 2;grid-column-end: 5;grid-row: 2;grid-row-end: 3">-->
+<!--            <input class="u-i-v" type="password" name="pwd" placeholder="" autocomplete="off">-->
+<!--            <hr>-->
+<!--        </div>-->
+<!--        <input type="hidden" name="next_page" value="{{ next_page }}">-->
+<!--        <button class="button" style="grid-column: 1;grid-column-end: 3;grid-row: 3;grid-row-end: 4" type="button" onclick="clearInputBox()">取消</button>-->
+<!--        <button class="button" style="grid-column: 3;grid-column-end: 5;grid-row: 3;grid-row-end: 4" type="submit">登录</button>-->
+<!--        {% if error %}-->
+<!--            <p style="grid-column: 1;grid-column-end: 5;grid-row: 4;grid-row-end: 4;color: #f00;">{{ error }}</p>-->
+<!--        {% endif %}-->
+<!--    </form>-->
+<!--</div>-->
+<section class="vh-100" style="background-color: #9A616D;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-5 d-none d-md-block">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                                 alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                        </div>
+                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
+
+                                <form>
+
+                                    <div class="d-flex align-items-center mb-3 pb-1">
+                                        <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                                        <span class="h1 fw-bold mb-0">Logo</span>
+                                    </div>
+
+                                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+
+                                    <div class="form-outline mb-4">
+                                        <div class="input-box">
+
+                                        </div>
+                                        <input type="email" id="form2Example17" class="form-control form-control-lg" />
+                                        <label class="form-label" for="form2Example17">Email address</label>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <input type="password" id="form2Example27" class="form-control form-control-lg" />
+                                        <label class="form-label" for="form2Example27">Password</label>
+                                    </div>
+
+                                    <div class="pt-1 mb-4">
+                                        <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                                    </div>
+
+                                    <a class="small text-muted" href="#!">Forgot password?</a>
+                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
+                                                                                                              style="color: #393f81;">Register here</a></p>
+                                    <a href="#!" class="small text-muted">Terms of use.</a>
+                                    <a href="#!" class="small text-muted">Privacy policy</a>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block script %}
+<script>
+    const inputs = document.querySelectorAll('.u-i-v');
+    inputs.forEach(input => {
+        const hr = input.nextElementSibling;
+        let interval = undefined;
+        input.addEventListener('focus', () => {
+            let wid = 0;
+            hr.style.borderBottom = '1px solid #000';
+            let speed = 0;
+            interval = setInterval(function (){
+                wid += speed;
+                if(wid > 100){
+                    clearInterval(interval);
+                    hr.style.width = '100%';
+                }else {
+                    hr.style.width = wid.toString() + '%';
+                }
+                if(wid > 66){
+                    speed -= 0.3;
+                }else {
+                    speed += 0.6;
+                }
+            }, 10)
+        });
+        input.addEventListener('blur', () => {
+            clearInterval(interval);
+            hr.style.borderBottom = '1px solid #999';
+            hr.style.width = '100%';
+        });
+    });
+
+</script>
+{% endblock %}

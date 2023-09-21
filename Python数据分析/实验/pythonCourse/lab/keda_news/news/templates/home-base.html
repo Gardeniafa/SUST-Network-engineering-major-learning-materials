@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}我的科大新闻{% endblock %}</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/js/fontawesome.min.js"></script>
+    <link rel="stylesheet" href="../../static/css/home-base.css">
+    {% block head-content %}{% endblock %}
+</head>
+<body>
+{% block navbar %}
+<div id="navbar" class="navbar navbar-expand-lg bg-body-tertiary" style="">
+    <div class="container-fluid">
+        <p class="navbar-brand" style="font-size: 1.3em;margin: 0 1em 0 0;">我的科大新闻</p>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/addNews">发稿</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/changePassages">编辑</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">管理</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block banner %}
+<div id="banner" class="carousel slide justify-content-sm-center">
+    <div class="carousel-inner" style="height: 100%;">
+        <div class="carousel-item active img-div-fix-1">
+            <img src="../../static/images/bannerImage/galaxy-3608029.jpg" class="d-block w-100" alt="...">
+            <div class="banner-text" style="color: #fff;">
+                <p>北海虽赊，扶摇可接。</p>
+                <p>东隅已逝，桑榆非晚。</p>
+            </div>
+
+        </div>
+        <div class="carousel-item img-div-fix-1">
+            <img src="../../static/images/bannerImage/rainbow-7381976.jpg" class="d-block w-100" alt="...">
+            <div class="banner-text">
+                <p>九万里风鹏正举，</p>
+                <p>风休住。蓬舟吹取三山去。</p>
+            </div>
+
+        </div>
+        <div class="carousel-item img-div-fix-1">
+            <img src="../../static/images/bannerImage/sunset-6704756_960_720.jpg" class="d-block w-100" alt="...">
+            <div class="banner-text" style="color: #fff;">
+                <p>休对故人思故国，</p>
+                <p>且将新火试新茶，诗酒趁年华。</p>
+            </div>
+
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#banner" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#banner" data-bs-slide="next"
+            id="banner-right-btn">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% endblock %}
+<div class="row has-shadow justify-content-center" style="margin: 3em 0 0 0; padding-bottom: 5em;">
+    {% block content %}
+    {% endblock %}
+</div>
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
+    <div class="col-lg-4 d-flex align-items-center pl-3">
+      <span class="text-muted">我的科大新闻</span>
+    </div>
+    <div class="col-lg-4 d-flex align-items-center pl-3">
+      <span class="text-muted" style="margin-left: auto;">我的学号</span>
+    </div>
+  </footer>
+<script src="../../static/script/home-base.js"></script>
+{% block script %}{% endblock %}
+</body>
+</html>

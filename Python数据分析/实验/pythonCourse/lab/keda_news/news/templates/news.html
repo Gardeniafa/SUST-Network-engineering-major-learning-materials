@@ -1,0 +1,20 @@
+{% extends 'home-base.html' %}
+{% load string_process %}
+{% block title %}新闻详情|{{ news.title|max_len_str:9 }}{% endblock %}
+{% block head-content %} <link rel="stylesheet" href="../../static/css/news.css"> {% endblock %}
+{% block content %}
+    <div class="col-lg-10 bg-white has-shadow">
+        <div style="display: flex; justify-content: space-between;border-bottom: 1px solid #aaa6;padding: 1em;">
+            <span style="font-size: 1.3em; color: #b93c28; font-weight: bolder;">我的科大新闻</span>
+            <span style="">首页>新闻详情></span>
+        </div>
+        <div class="news-inf">
+            <h1>{{ news.title }}</h1>
+            <p>{{ news.time }} {{ news.author }}</p>
+        </div>
+        <div class="passage-content-html">
+            {{ news.content|safe }}
+        </div>
+    </div>
+
+{% endblock %}

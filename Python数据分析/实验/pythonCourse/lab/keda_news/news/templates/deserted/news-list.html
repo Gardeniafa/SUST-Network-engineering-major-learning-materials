@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻速览</title>
+</head>
+<body>
+<h1>新闻列表</h1>
+<hr>
+{% if news %}
+    <ul>
+        {% for passage in news %}
+            <li><a href="/news/{{ passage.passage_id }}">{{ passage.title }}</a>|{{ passage.time }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<p>找到{{ count }}条新闻</p>
+</body>
+</html>

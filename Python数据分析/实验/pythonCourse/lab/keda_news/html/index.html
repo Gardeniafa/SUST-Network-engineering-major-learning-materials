@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.2.47/vue.global.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap-grid.css" rel="stylesheet">
+    <script src="tinymce/tinymce.min.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <editor/>
+        <p></p>
+    </div>
+    <div id="baga"></div>
+
+<script>
+    //tinymce.init({selector: '#baga', language: 'zh-Hans'});
+    tinymce.init({
+            selector: '#baga',
+            language: 'zh-Hans',
+            plugins: "image, media, save, wordcount",
+            theme_advanced_buttons1: "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect,fullscreen,code",
+    });
+    let v = Vue.createApp({
+        compound(){
+            return {
+                'editor': tinymce.init(),
+            }
+        }
+    }).mount('#app')
+</script>
+</body>
+</html>

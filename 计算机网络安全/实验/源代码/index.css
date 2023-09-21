@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.pwd-div p{
+    display: inline-block;
+}
+container{
+    display: block;
+    margin: 3em auto;
+    width: 70%;
+}
+container>*{
+    margin: 1em;
+}

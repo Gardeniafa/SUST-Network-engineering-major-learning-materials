@@ -1,0 +1,27 @@
+<form method="post" action="/login" onsubmit="return checkInputIsNotBlank();">
+    <div class="d-flex align-items-center mb-3 pb-1">
+        <span class="h1 fw-bold mb-0">登录</span>
+    </div>
+    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">请登录后再访问相关页面</h5>
+    <div class="form-outline mb-4">
+        <div class="input-box">
+            <input type="text" id="form2Example17" class="form-control form-control-lg u-i-v" name="user"
+                   autocomplete="off"/>
+            <hr>
+        </div>
+        <label class="form-label" for="form2Example17">用户名</label>
+    </div>
+    <div class="form-outline mb-4">
+        <div class="input-box">
+            <input id="form2Example27" class="form-control form-control-lg u-i-v" name="pwd" autocomplete="haha"/>
+            <hr>
+        </div>
+        <label class="form-label" for="form2Example27">口令</label>
+    </div>
+    <p class="mb-5 pb-lg-2" style="color: #f00;">{{ error }}</p>
+    <input type="hidden" name="next_page" value="{{ next_page }}">
+    <div class="pt-1 mb-4">
+        <button class="btn btn-dark btn-lg btn-block" type="submit">登录</button>
+        <button class="btn btn-dark btn-lg btn-block" type="button" onclick="clearInputBox();">取消</button>
+    </div>
+</form>

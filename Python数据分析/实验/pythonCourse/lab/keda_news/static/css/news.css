@@ -1,0 +1,25 @@
+.news-inf{
+    margin: 2em 1em 1.3em 1em;
+    border-bottom: 2px dashed #3333;
+}
+.news-inf h1{
+    text-align: center;
+    margin-bottom: 0.3em;
+    font-size: 2em;
+    color: #333;
+    font-weight: bold;
+}
+.news-inf p{
+    text-align: center;
+}
+.col-lg-10.bg-white.has-shadow{
+    padding: 0;
+    border-radius: 5px;
+}
+blockquote{
+    border-left: 0.15em solid #3336;
+    padding-left: 0.5em;
+}
+.passage-content-html{
+    padding: 1em 2em;
+}

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <title>add imgs</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        img{
+            width: 30%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="default">
+    <h6>default</h6>
+    <form action="/addImage" method="post" enctype="multipart/form-data">
+        <input type="file" value="img" name="img">
+        <button type="submit">submit</button>
+    </form>
+    <div>
+    {% if mode == 2 %}
+        {% if image %}
+            <img src="{{ image.img.url }}" alt="{{ image.name }}">
+        {% endif %}
+    {% endif %}
+    </div>
+</div>
+<div class="type">
+    <h6>type=avatar</h6>
+    <form action="/addImage" method="post" enctype="multipart/form-data">
+        <input type="file" value="img" name="img">
+        <input type="hidden" name="type" value="avatar">
+        <button type="submit">submit</button>
+    </form>
+    <div>
+    {% if mode == 1 %}
+        {% if image %}
+            <img src="{{ image.img.url }}" alt="{{ image.name }}">
+        {% endif %}
+    {% endif %}
+    </div>
+</div>
+
+</body>
+</html>

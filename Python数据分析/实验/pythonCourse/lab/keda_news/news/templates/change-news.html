@@ -1,0 +1,56 @@
+{% extends 'author-dashboard-base.html' %}
+{% block style-area %}
+    <style>
+    #editor-filed{
+        display: none;
+    }
+    </style>
+{% endblock %}
+{% block action-reminder %}修改或删除相应的新闻{% endblock %}
+{% block content-area %}
+    <div id="editor-filed">
+        <div class="row bg-white has-shadow"
+             style="border-radius: 10px; border: none;margin: 2px; box-shadow: 1px 30px 30px #9993; padding: 0.6em; align-content: center; justify-content: space-around">
+            <p style="margin: auto 0;height: 100%;font-size: 1.3em;"><strong>标题</strong></p>
+            <label for="news-title"></label><input type="text" placeholder="输入标题" id="news-title"
+                                                   class="input-material"
+                                                   style="display: inline-block; width: calc(100% - 5em); !important;font-size: 1.3em;">
+        </div>
+        <div id="editor">
+
+        </div>
+    </div>
+    <div id="list-filed" style="width: 100%; height: 90%;">
+        <div class="table-responsive table-hover row bg-white has-shadow">
+            <table id="dtable" class="table table-striped  table-bordered  table-hover text-center"
+                   style="position: relative; width: 96%; margin: 3px auto;">
+                <thead>
+                <tr>
+                    <th class="text-center">序号</th>
+                    <th class="text-center">标题</th>
+                    <th class="text-center">创建时间</th>
+                    <th class="text-center" style="border-right: none; width: 6em; padding-left: 5em;">操</th>
+                    <th class="text-center" style="border-left: none; width: 6em; padding-right: 5em;">作</th>
+                </tr>
+                </thead>
+                <tbody id="passages-tbody">
+
+                </tbody>
+
+            </table>
+            <div class="row" style="">
+                <div class=""
+                     style="justify-content: space-around; display: flex;align-content: center;min-width:20em; max-width: 33%;">
+                    <button type="button" disabled="disabled" class="btn btn-primary" id="previous-passage">上一页
+                    </button>
+                    <p class="text-center no-margin" style="display: inline-block;align-self: center;">第<span
+                            id="page-number">1</span>页 / 共<span id="total-pages">1</span>页</p>
+                    <button type="button" class="btn btn-primary" id="next-passage">下一页</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+{% block script-area %}
+    <script src="../../static/script/updateNews.js"></script>{% endblock %}

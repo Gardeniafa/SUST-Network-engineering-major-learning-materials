@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <title>404 Not Found</title>
+    <style>
+        body{
+            padding: 10% 10%;
+        }
+        span{
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>404 NotFound</h1>
+    <hr>
+<p>
+    The resource you have access does not exist on this server.
+</p>
+    <p>please check your access uri or retry later.</p>
+<p>
+    Return home page after <strong><span></span></strong> seconds...
+</p>
+    <script>
+        let timer = document.querySelector("body p:nth-child(5) strong span");
+        let count = 5;
+        setInterval(function (){
+            if(count === 0){
+                document.location.href = '/';
+            }
+            timer.textContent = count.toString();
+            count += -1;
+        }, 1000)
+    </script>
+</body>
+</html>
