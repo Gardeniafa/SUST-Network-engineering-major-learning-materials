@@ -6,3 +6,5 @@
 /Python数据分析/实验/pythonCourse/lab/keda_news/static/css/style.pink.css linguist-vendored
 /Python数据分析/实验/pythonCourse/lab/keda_news/static/script/tinymce/* linguist-vendored
 /Python数据分析/实验/pythonCourse/lab/keda_news/html/tinymce/* linguist-vendored
+*.pdf pdf
+
