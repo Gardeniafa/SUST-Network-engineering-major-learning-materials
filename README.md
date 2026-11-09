@@ -23,10 +23,11 @@
   * 网线测试仪
   * 金属探测器
   * 光照检测器  <span style='color: #fff3; font-size: 0.8em;margin-left: 1em;font-style: italic;'>（区别于太阳方向检测器）</span>
-* 电子实习🫥
+* 电子实习🥰✔
   * readme.md
   * 数据
   * 总结
+  * 考试复习
 * 金工实习🫥
   * readme.md
   * 数据
